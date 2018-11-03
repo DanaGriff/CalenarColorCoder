@@ -83,8 +83,7 @@ def calendar_service():
                  http=creds.authorize(Http()))
     
     
-def main():
-    data = retrieve_settings()
+def main(data):
     calendar_id = data["calender_id"]
     
     service = calendar_service()
@@ -112,6 +111,7 @@ def main():
 
 
 if __name__ == '__main__':
+    data = retrieve_settings()
     while True:
-        main()
-        time.sleep(3600)
+        main(data)
+        time.sleep(data["sleep_time"])

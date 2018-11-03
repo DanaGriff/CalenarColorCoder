@@ -25,5 +25,6 @@
          "keywords":"(S)",
          "color":"YELLOW"
       }
-   ]
+   ],
+   "sleep_time":3600
 }

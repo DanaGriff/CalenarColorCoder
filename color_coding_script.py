@@ -5,6 +5,7 @@ import json
 import sys
 import os
 import datetime
+import time
 
 from googleapiclient.discovery import build
 from httplib2 import Http
@@ -110,4 +111,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    while True:
+        main()
+        time.sleep(3600)

@@ -2,31 +2,27 @@
    "calender_id":"1mtcl5nt9213mj4k54qpuc72us@group.calendar.google.com",
    "color_coding":[  
       {  
-         "tag":"(F)",
+         "keywords":"(F)",
          "color":"TURQUOISE"
       },
       {  
-         "tag":"(W)",
+         "keywords":"(W)",
          "color":"BLUE"
       },
       {  
-         "tag":"Maman",
+         "keywords":"Mamach,Maman",
          "color":"BOLD_RED"
       },
       {  
-         "tag":"Mamach",
-         "color":"BOLD_RED"
-      },
-      {  
-         "tag":"(T)",
+         "keywords":"(T)",
          "color":"BOLD_GREEN"
       },
       {  
-         "tag":"(M)",
+         "keywords":"(M)",
          "color":"PURPLE"
       },
       {  
-         "tag":"(S)",
+         "keywords":"(S)",
          "color":"YELLOW"
       }
    ]

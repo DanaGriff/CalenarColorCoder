@@ -33,10 +33,12 @@ def color_event(event, data, service, calendar_id):
     
     if summary_and_description:
         for color in data["color_coding"]:
-            if color["tag"] in summary_and_description:
-                modified_event = {'colorId': COLORS[color["color"]]}
-                found = True
-                break
+            keywords = color["keywords"].split(",")
+            for keyword in keywords:
+                if keyword in summary_and_description:
+                    modified_event = {'colorId': COLORS[color["color"]]}
+                    found = True
+                    break
                 
         if found:
             service.events().patch(calendarId=calendar_id, 

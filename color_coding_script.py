@@ -85,32 +85,32 @@ def calendar_service():
     
     
 def main(data):
-    calendar_id = data["calender_id"]
+    calendar_ids = data["calender_id"].split(",")
+    for calendar_id in calendar_ids:
     
-    service = calendar_service()
-    
-    # Call the Calendar API
-    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-    
-    events_result = service.events().list(calendarId=calendar_id, 
-                                          timeMin=now,
-                                          maxResults=200, 
-                                          singleEvents=True,
-                                          orderBy='startTime').execute()
-                                        
-    events = events_result.get('items', [])
-    
-    counter = 0
-    if not events:
-        print 'No upcoming events found.'
-        sys.exit()
+        service = calendar_service()
+        
+        # Call the Calendar API
+        now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+        
+        events_result = service.events().list(calendarId=calendar_id, 
+                                              timeMin=now,
+                                              maxResults=200, 
+                                              singleEvents=True,
+                                              orderBy='startTime').execute()
+                                            
+        events = events_result.get('items', [])
+        
+        counter = 0
+        if not events:
+            print 'No upcoming events found.'
+            sys.exit()
 
-    for event in events:
-        counter += color_event(event, data, service, calendar_id)
+        for event in events:
+            counter += color_event(event, data, service, calendar_id)
 
-    print_result(counter)
-
-
+        print_result(counter)
+        
 if __name__ == '__main__':
     data = retrieve_settings()
     while True:

@@ -1,29 +1,13 @@
 {  
-   "calender_id":"<calenadr id>",
+   "calender_id":"<calenadr id>,<calendar id>",
    "color_coding":[  
       {  
-         "keywords":"(F)",
-         "color":"TURQUOISE"
-      },
-      {  
-         "keywords":"(W)",
-         "color":"BLUE"
-      },
-      {  
-         "keywords":"Mamach,Maman",
+         "keywords":"Some keyword",
          "color":"BOLD_RED"
       },
-      {  
-         "keywords":"(T)",
-         "color":"BOLD_GREEN"
-      },
-      {  
-         "keywords":"(M)",
-         "color":"PURPLE"
-      },
-      {  
-         "keywords":"(S)",
-         "color":"YELLOW"
+      {     
+         "keywords":"First key,secondkey",
+         "color":"TURQUOISE"
       }
    ],
    "sleep_time":3600

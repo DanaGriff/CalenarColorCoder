@@ -36,8 +36,9 @@ def color_event(event, data, service, calendar_id):
         for color in data["color_coding"]:
             keywords = color["keywords"].split(",")
             if filter(lambda x: x in summary_and_description,keywords):
-                modified_event = {'colorId': COLORS[color["color"]]}
-                found = True
+                if COLORS[color["color"]]:
+                    modified_event = {'colorId': COLORS[color["color"]]}
+                    found = True
                 break
                 
         if found:

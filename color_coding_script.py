@@ -25,6 +25,7 @@ COLORS = {'BLUE' : 1,
           'BOLD_BLUE' : 9,
           'BOLD_GREEN' : 10,
           'BOLD_RED' : 11}
+COLOR_OPTIONS = list(COLORS.keys());
 
 def color_event(event, data, service, calendar_id):
     found = False
@@ -36,9 +37,12 @@ def color_event(event, data, service, calendar_id):
         for color in data["color_coding"]:
             keywords = color["keywords"].split(",")
             if filter(lambda x: x in summary_and_description,keywords):
-                if COLORS[color["color"]]:
+                if color["color"] in COLOR_OPTIONS:
                     modified_event = {'colorId': COLORS[color["color"]]}
                     found = True
+                else:
+                    print "{0} '{1}'. {2}".format("The JSON File contains a color that doesn't exist:", color["color"],"Please fix the JSON.")
+                    sys.exit()
                 break
                 
         if found:

@@ -86,6 +86,7 @@ def calendar_service():
     
 def main(data):
     calendar_ids = data["calender_id"].split(",")
+    counter = 0
     for calendar_id in calendar_ids:
     
         service = calendar_service()
@@ -101,7 +102,7 @@ def main(data):
                                             
         events = events_result.get('items', [])
         
-        counter = 0
+        
         if not events:
             print 'No upcoming events found.'
             sys.exit()
@@ -109,7 +110,7 @@ def main(data):
         for event in events:
             counter += color_event(event, data, service, calendar_id)
 
-        print_result(counter)
+    print_result(counter)
         
 if __name__ == '__main__':
     data = retrieve_settings()

@@ -28,5 +28,9 @@ A script that connects to your Google Calendar and color codes all the events wi
     **Color Options**: BLUE,GREEN,PURPLE,RED,YELLOW,ORANGE,TURQUOISE,GREY,BOLD_BLUE,BOLD_GREEN,BOLD_RED
 6. the script runs periodically every x seconds. the seconds are defined in the setting ```sleep_time```.
 
+##Important info
+at the first run of the script you will be prompted to a web browser to give permissions to your calendar.
+none of your information will be saved anywhere.
+
 ## License
 © Dana Griff

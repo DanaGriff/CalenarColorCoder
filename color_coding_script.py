@@ -73,7 +73,7 @@ def retrieve_settings():
             json_data = json.load(settings_file)
             return json_data
         except ValueError:
-            print 'The JSON File is corrupted, modify the file and re-run the script'
+            print 'The JSON File is corrupted, modify the setting file and re-run the script'
             sys.exit()
 
             
@@ -89,21 +89,35 @@ def calendar_service():
     
     
 def main(data):
-    calendar_ids = data["calender_id"].split(",")
-    counter = 0
-    for calendar_id in calendar_ids:
     
+    counter = 0
+    
+    try:
+        calendar_ids = data["calender_id"].split(",")
+    except KeyError:
+        print 'The calendar id setting is missing, modify the setting file and re-run the script'
+        sys.exit()
+            
+    if calendar_ids[0] == '':
+        print 'The calendar id is empty, modify the setting file and re-run the script'
+        sys.exit()
+        
+    for calendar_id in calendar_ids:
         service = calendar_service()
         
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
         
-        events_result = service.events().list(calendarId=calendar_id, 
+        try:
+            events_result = service.events().list(calendarId=calendar_id, 
                                               timeMin=now,
                                               maxResults=200, 
                                               singleEvents=True,
                                               orderBy='startTime').execute()
-                                            
+        except:
+            print 'This calendar does not exist, modify the setting file and re-run the script'
+            sys.exit()
+            
         events = events_result.get('items', [])
         
         

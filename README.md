@@ -13,7 +13,7 @@ A script that connects to your Google Calendar and color codes all the events wi
     ```
     {  
          "keywords":"Some keyword",
-         "color":"BOLD_RED"
+         "color":"Tomato"
     },
     ```
     You can add multiple keywords to the same color, seperated by comma. 
@@ -22,10 +22,10 @@ A script that connects to your Google Calendar and color codes all the events wi
     ```
     {     
          "keywords":"First key,Second key",
-         "color":"TURQUOISE"
+         "color":"Tangerine"
     },
     ```
-    **Color Options**: BLUE,GREEN,PURPLE,RED,YELLOW,ORANGE,TURQUOISE,GREY,BOLD_BLUE,BOLD_GREEN,BOLD_RED
+    **Color Options**: Lavender, Sage, Grape, Flamingo, Banana, Tangerine, Peacock, Graphite, Basil, Blueberry, Tomato
 6. the script runs periodically every x seconds. the seconds are defined in the setting ```sleep_time```.
 
 ##Important info

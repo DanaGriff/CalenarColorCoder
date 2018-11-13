@@ -14,17 +14,17 @@ from oauth2client import client, tools
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar'
-COLORS = {'BLUE' : 1,
-          'GREEN' : 2,
-          'PURPLE' : 3,
-          'RED' : 4,
-          'YELLOW' : 5,
-          'ORANGE' : 6,
-          'TURQUOISE' : 7,
-          'GREY' : 8,
-          'BOLD_BLUE' : 9,
-          'BOLD_GREEN' : 10,
-          'BOLD_RED' : 11}
+COLORS = {'Lavender' : 1, 
+          'Sage' : 2, 
+          'Grape' : 3, 
+          'Flamingo' : 4, 
+          'Banana' : 5, 
+          'Tangerine' : 6, 
+          'Peacock' : 7, 
+          'Graphite' : 8, 
+          'Blueberry' : 9, 
+          'Basil' : 10, 
+          'Tomato' : 11}
 COLOR_OPTIONS = list(COLORS.keys());
 
 def color_event(event, data, service, calendar_id):

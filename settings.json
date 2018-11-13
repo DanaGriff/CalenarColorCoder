@@ -3,11 +3,11 @@
    "color_coding":[  
       {  
          "keywords":"Some keyword",
-         "color":"BOLD_RED"
+         "color":"Tomato"
       },
       {     
          "keywords":"First key,secondkey",
-         "color":"TURQUOISE"
+         "color":"Tangerine"
       }
    ],
    "sleep_time":3600

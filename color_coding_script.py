@@ -1,6 +1,7 @@
 """
     TODO: ADD CODE DESCRIPTION
 """
+from __future__ import print_function
 import json
 import sys
 import os
@@ -14,16 +15,16 @@ from oauth2client import client, tools
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar'
-COLORS = {'Lavender' : 1, 
-          'Sage' : 2, 
-          'Grape' : 3, 
-          'Flamingo' : 4, 
-          'Banana' : 5, 
-          'Tangerine' : 6, 
-          'Peacock' : 7, 
-          'Graphite' : 8, 
-          'Blueberry' : 9, 
-          'Basil' : 10, 
+COLORS = {'Lavender' : 1,
+          'Sage' : 2,
+          'Grape' : 3,
+          'Flamingo' : 4,
+          'Banana' : 5,
+          'Tangerine' : 6,
+          'Peacock' : 7,
+          'Graphite' : 8,
+          'Blueberry' : 9,
+          'Basil' : 10,
           'Tomato' : 11}
 COLOR_OPTIONS = list(COLORS.keys());
 
@@ -32,7 +33,7 @@ def color_event(event, data, service, calendar_id):
     event_id = event['id']
     counter = 0
     summary_and_description = event.get('summary', '') + event.get('description', '')
-    
+
     if summary_and_description:
         for color in data["color_coding"]:
             keywords = color["keywords"]
@@ -41,13 +42,13 @@ def color_event(event, data, service, calendar_id):
                     modified_event = {'colorId': COLORS[color["color"]]}
                     found = True
                 else:
-                    print "{0} '{1}'. {2}".format("The JSON File contains a color that doesn't exist:", color["color"],"Please fix the JSON.")
+                    print("{0} '{1}'. {2}".format("The JSON File contains a color that doesn't exist:", color["color"],"Please fix the JSON."))
                     sys.exit()
                 break
-                
+
         if found:
-            service.events().patch(calendarId=calendar_id, 
-                                   eventId=event_id, 
+            service.events().patch(calendarId=calendar_id,
+                                   eventId=event_id,
                                    body=modified_event).execute()
             counter += 1
     return counter
@@ -55,28 +56,28 @@ def color_event(event, data, service, calendar_id):
 
 def print_result(counter):
     if counter == 0:
-        print 'no events were updated'
+        print('no events were updated')
     elif counter == 1:
-        print 'One event was updated successfully!'
+        print('One event was updated successfully!')
     else:
-        print '{0} {1}'.format(counter, 'Events were updated successfully!')
+        print('{0} {1}'.format(counter, 'Events were updated successfully!'))
 
-        
+
 def full_path(file_name):
     dir_path = os.path.dirname(__file__)
     return os.path.join(dir_path, file_name)
 
-    
+
 def retrieve_settings():
     with open(full_path('settings.json')) as settings_file:
         try:
             json_data = json.load(settings_file)
             return json_data
         except ValueError:
-            print 'The JSON File is corrupted, modify the setting file and re-run the script'
+            print('The JSON File is corrupted, modify the setting file and re-run the script')
             sys.exit()
 
-            
+
 def calendar_service():
     store = my_file.Storage(full_path('token.json'))
     creds = store.get()
@@ -86,50 +87,50 @@ def calendar_service():
     return build('calendar',
                  'v3',
                  http=creds.authorize(Http()))
-    
-    
+
+
 def main(data):
-    
+
     counter = 0
-    
+
     try:
         calendar_ids = data["calender_ids"]
     except KeyError:
-        print 'The calendar id setting is missing, modify the setting file and re-run the script'
+        print('The calendar id setting is missing, modify the setting file and re-run the script')
         sys.exit()
-            
+
     if calendar_ids[0] == '':
-        print 'The calendar id is empty, modify the setting file and re-run the script'
+        print('The calendar id is empty, modify the setting file and re-run the script')
         sys.exit()
-        
+
     for calendar_id in calendar_ids:
         service = calendar_service()
-        
+
         # Call the Calendar API
         now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-        
+
         try:
-            events_result = service.events().list(calendarId=calendar_id, 
+            events_result = service.events().list(calendarId=calendar_id,
                                               timeMin=now,
-                                              maxResults=200, 
+                                              maxResults=200,
                                               singleEvents=True,
                                               orderBy='startTime').execute()
         except:
-            print 'This calendar does not exist, modify the setting file and re-run the script'
+            print('This calendar does not exist, modify the setting file and re-run the script')
             sys.exit()
-            
+
         events = events_result.get('items', [])
-        
-        
+
+
         if not events:
-            print 'No upcoming events found.'
+            print('No upcoming events found.')
             sys.exit()
 
         for event in events:
             counter += color_event(event, data, service, calendar_id)
 
     print_result(counter)
-        
+
 if __name__ == '__main__':
     data = retrieve_settings()
     while True:
@@ -137,8 +138,8 @@ if __name__ == '__main__':
         try:
             time.sleep(data["sleep_time"])
         except TypeError:
-            print 'Sleep time setting is not a number, modify the setting file and re-run the script'
+            print('Sleep time setting is not a number, modify the setting file and re-run the script')
             sys.exit()
         except KeyError:
-            print 'The sleep time setting is missing, modify the setting file and re-run the script'
+            print('The sleep time setting is missing, modify the setting file and re-run the script')
             sys.exit()

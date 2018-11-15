@@ -134,4 +134,11 @@ if __name__ == '__main__':
     data = retrieve_settings()
     while True:
         main(data)
-        time.sleep(data["sleep_time"])
+        try:
+            time.sleep(data["sleep_time"])
+        except TypeError:
+            print 'Sleep time setting is not a number, modify the setting file and re-run the script'
+            sys.exit()
+        except KeyError:
+            print 'The sleep time setting is missing, modify the setting file and re-run the script'
+            sys.exit()

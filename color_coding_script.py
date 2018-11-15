@@ -93,7 +93,7 @@ def main(data):
     counter = 0
     
     try:
-        calendar_ids = data["calender_id"]
+        calendar_ids = data["calender_ids"]
     except KeyError:
         print 'The calendar id setting is missing, modify the setting file and re-run the script'
         sys.exit()

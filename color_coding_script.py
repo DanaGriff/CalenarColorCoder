@@ -35,7 +35,7 @@ def color_event(event, data, service, calendar_id):
     
     if summary_and_description:
         for color in data["color_coding"]:
-            keywords = color["keywords"].split(",")
+            keywords = color["keywords"]
             if filter(lambda x: x in summary_and_description,keywords):
                 if color["color"] in COLOR_OPTIONS:
                     modified_event = {'colorId': COLORS[color["color"]]}
@@ -93,7 +93,7 @@ def main(data):
     counter = 0
     
     try:
-        calendar_ids = data["calender_id"].split(",")
+        calendar_ids = data["calender_id"]
     except KeyError:
         print 'The calendar id setting is missing, modify the setting file and re-run the script'
         sys.exit()

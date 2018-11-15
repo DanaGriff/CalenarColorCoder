@@ -1,14 +1,15 @@
 {  
-   "calender_id":"<calenadr id>,<calendar id>",
+   "calender_ids": ["<calendar id>", "<calendar id>"],
    "color_coding":[  
       {  
-         "keywords":"Some keyword",
+         "keywords": ["Some keyword"],
          "color":"Tomato"
       },
       {     
-         "keywords":"First key,secondkey",
+         "keywords": ["First key", "Second key"],
          "color":"Tangerine"
       }
    ],
    "sleep_time":3600
 }
+

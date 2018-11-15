@@ -1,26 +1,15 @@
-{
-   "calender_id":["ron.suhodrev@gmail.com", "ron@extalio.com"],
-   "color_coding":[
-      {
-         "keywords":["🎉"],
-         "color": "Flamingo"
+{  
+   "calender_ids": ["<calendar id>", "<calendar id>"],
+   "color_coding":[  
+      {  
+         "keywords": ["Some keyword"],
+         "color":"Tomato"
       },
-      {
-         "keywords":["🚗"],
-         "color": "Graphite"
-      },
-      {
-        "keywords": ["📲"],
-        "color": "Sage"
-      },
-      {
-        "keywords": ["⚕️"],
-        "color": "Basil"
-      },
-      {
-        "keywords": ["🥪", "💤"],
-        "color": "Peacock"
+      {     
+         "keywords": ["First key", "Second key"],
+         "color":"Tangerine"
       }
    ],
    "sleep_time":3600
 }
+

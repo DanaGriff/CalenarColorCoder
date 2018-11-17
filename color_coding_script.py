@@ -64,8 +64,13 @@ def print_result(counter):
 
 
 def full_path(file_name):
-    dir_path = os.path.dirname(__file__)
-    return os.path.join(dir_path, file_name)
+    if getattr( sys, 'frozen', False ): # running in a bundle
+        print(sys.executable)
+        return sys.executable
+    else : # running live
+        dir_path = os.path.dirname(__file__)
+        print('path = {}, {}'.format(dir_path, __file__))
+        return os.path.join(dir_path, file_name)
 
 
 def retrieve_settings():

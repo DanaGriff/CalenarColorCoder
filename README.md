@@ -2,8 +2,8 @@
 A script that connects to your Google Calendar and color codes all the events with a given set of keywords.
 
 ## How To Use
-1. Download the binary file that's compatible to your computer.
-2. add the file to the startup folder. This way when the computer is turned on, the script will run periodically and update the events.
+1. Download the Release fiels.
+2. Schedule the exe in Windows Scheduler.
 3. Go to Google Calendar, enter the settings of the calendar you wish to edit, and copy the "Calendar ID".
     You can add multiple calendars,seperated by comma, like this: ```"calender_ids": ["<calendar id>", "<calendar id>"]```
 4. Open the ```settings.json``` file and Replace ```<calendar_id>``` with your calendar id in the desired row. REMOVE THE ```<>```!
@@ -26,11 +26,7 @@ A script that connects to your Google Calendar and color codes all the events wi
     },
     ```
     **Color Options**: Lavender, Sage, Grape, Flamingo, Banana, Tangerine, Peacock, Graphite, Basil, Blueberry, Tomato
-6. the script runs periodically every x seconds. the seconds are defined in the setting ```sleep_time```.
-
-##Important info
-at the first run of the script you will be prompted to a web browser to give permissions to your calendar.
-none of your information will be saved anywhere.
+6. Run the script manually once, at the first run of the script you will be prompted to a web browser to give permissions to your calendar. none of your information will be saved anywhere.
 
 ## License
 © Dana Griff

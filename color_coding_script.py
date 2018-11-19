@@ -127,7 +127,7 @@ def main(data):
 
 
         if not events:
-            print('No upcoming events found.')
+            print('{0} {1}'.format('No upcoming events found for ', calendar_id))
 
         for event in events:
             counter += color_event(event, data, service, calendar_id)

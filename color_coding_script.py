@@ -54,13 +54,11 @@ def color_event(event, data, service, calendar_id):
     return counter
 
 
-def print_result(counter):
-    if counter == 0:
-        print('no events were updated')
-    elif counter == 1:
-        print('One event was updated successfully!')
+def print_result(counter,calendar_id):
+    if counter == 1:
+        print('1 {0} {1}'.format('Event was updated successfully for',calendar_id))
     else:
-        print('{0} {1}'.format(counter, 'Events were updated successfully!'))
+        print('{0} {1}'.format(counter, 'Events were updated successfully for',calendar_id ))
 
 
 def full_path(file_name):
@@ -108,6 +106,7 @@ def main(data):
         sys.exit()
 
     for calendar_id in calendar_ids:
+        counter = 0
         service = calendar_service()
 
         # Call the Calendar API
@@ -131,8 +130,8 @@ def main(data):
 
         for event in events:
             counter += color_event(event, data, service, calendar_id)
-
-    print_result(counter)
+        print_result(counter,calendar_id)
+    
 
 if __name__ == '__main__':
     data = retrieve_settings()

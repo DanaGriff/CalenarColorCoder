@@ -65,8 +65,6 @@ def print_result(counter):
 
 def full_path(file_name):
     if getattr( sys, 'frozen', False ): # running in a bundle
-        print('bundle')
-        print(sys.executable)
         dir_path = os.path.dirname(sys.executable)
         return os.path.join(dir_path, file_name)
     else : # running live

@@ -58,7 +58,7 @@ def print_result(counter,calendar_id):
     if counter == 1:
         print('1 {0} {1}'.format('Event was updated successfully for',calendar_id))
     else:
-        print('{0} {1}'.format(counter, 'Events were updated successfully for',calendar_id ))
+        print('{0} {1}'.format(counter, 'Events were updated successfully for',calendar_id))
 
 
 def full_path(file_name):
@@ -127,7 +127,8 @@ def main(data):
 
         if not events:
             print('{0} {1}'.format('No upcoming events found for', calendar_id))
-
+            continue
+            
         for event in events:
             counter += color_event(event, data, service, calendar_id)
         print_result(counter,calendar_id)

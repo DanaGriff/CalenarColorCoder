@@ -28,5 +28,5 @@ A script that connects to your Google Calendar and color codes all the events wi
     **Color Options**: Lavender, Sage, Grape, Flamingo, Banana, Tangerine, Peacock, Graphite, Basil, Blueberry, Tomato
 6. Run the script manually once, at the first run of the script you will be prompted to a web browser to give permissions to your calendar. none of your information will be saved anywhere.
 
-## License
+
 © Dana Griff

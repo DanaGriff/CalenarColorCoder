@@ -109,12 +109,12 @@ def main(data):
         counter = 0
         service = calendar_service()
 
-        # Call the Calendar API
-        now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+        # Call the Calendar API ('Z' indicates UTC time)
+        yesterday = (datetime.datetime.utcnow() - datetime.timedelta(days=1)).isoformat() + 'Z'
 
         try:
             events_result = service.events().list(calendarId=calendar_id,
-                                              timeMin=now,
+                                              timeMin=yesterday,
                                               maxResults=200,
                                               singleEvents=True,
                                               orderBy='startTime').execute()

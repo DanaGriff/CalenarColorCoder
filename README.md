@@ -26,6 +26,13 @@ A script that connects to your Google Calendar and color codes all the events wi
     },
     ```
     **Color Options**: Lavender, Sage, Grape, Flamingo, Banana, Tangerine, Peacock, Graphite, Basil, Blueberry, Tomato
+5. Generate a Credentials JSON File from the Google Calendar API:
+    a. Enter https://console.developers.google.com/?pli=1
+    b. Create a New Project
+    c. Enable API And Services 
+    d. Search for Google Calendar API and enable it.
+    e. Go to Credentials -> Create Credentials -> OAuth Client ID -> Other
+    f. Download the file and put in the same folder as the script.
 6. Run the script manually once, at the first run of the script you will be prompted to a web browser to give permissions to your calendar. none of your information will be saved anywhere.
 
 
